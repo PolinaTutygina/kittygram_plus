@@ -12,6 +12,14 @@ class AchievementSerializer(serializers.ModelSerializer):
         fields = ('id', 'achievement_name')
 
 
+class CatListSerializer(serializers.ModelSerializer):
+    color = serializers.ChoiceField(choices=CHOICES)
+    
+    class Meta:
+        model = Cat
+        fields = ('id', 'name', 'color') 
+
+
 # Этот класс мы создали сами для цветов котиков
 #class Hex2NameColor(serializers.Field):
 #    # При чтении данных ничего не меняем - просто возвращаем как есть
